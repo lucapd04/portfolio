@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from '../components/Card'
 
 export default function Experience() {
     return (
@@ -9,7 +10,6 @@ export default function Experience() {
             <div className="w-3/4 px-4">
                 <ol className="text-left">
                     <li>
-                        {/* Add your experience items here */}
                     </li>
                 </ol>
             </div>

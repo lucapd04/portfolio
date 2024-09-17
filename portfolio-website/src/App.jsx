@@ -4,15 +4,14 @@ import Experience from './pages/Experience'
 
 export default function App() {
   return (
-    <main className="min-h-screen">
-      <section className="relative h-screen">
+    <main className="overflow-x-hidden min-h-screen relative">
+      <section id="home">
         <Hero/>
       </section>
-      <section className="relative h-screen">
+      <section id="about">
         <About/>
       </section>
-      <section className="relative h-screen">
-        <Experience/>
+      <section id="experience">
       </section>
     </main>
   );
