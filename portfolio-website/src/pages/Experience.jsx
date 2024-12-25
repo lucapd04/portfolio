@@ -3,13 +3,19 @@ import Card from '../components/Card'
 
 export default function Experience() {
     return (
-        <div className="flex flex-col mt-[-3%] items-center min-h-screen bg-black">
+        <div className="block flex flex-col md:mt-[-20%] items-center py-16 md:px-20 bg-black relative">
             <h2 className="experience-title rubik-headline font-bold text-5xl px-8 py-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-white to-cyan-400 relative inline-block mb-8">
                 Experience
             </h2>
-            <div className="w-3/4 px-4">
-                <ol className="text-left">
+            <div className="w-3/4 px-4 mt-6">
+                <ol className="text-left space-y-6">
                     <li>
+                        <Card jobTitle="Project Manager at Western Tech for Social Impact" startDate="July 24, 2022" endDate="Present" 
+                        description="Lead a team of 5+ developers to develop a diverse cast of projects for multiple non-profit organizations within London, ON" link="https://uwotsi.com/"/>
+                    </li>
+                    <li>
+                        <Card jobTitle="Project Manager at Western Tech for Social Impact" startDate="July 24, 2022" endDate="Present" 
+                        description="Lead a team of 5+ developers to develop a diverse cast of projects for multiple non-profit organizations within London, ON" link="https://uwotsi.com/"/>
                     </li>
                 </ol>
             </div>

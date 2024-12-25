@@ -1,5 +1,6 @@
 import React from 'react';
 import Photo from '../assets/images/pfp2.jpg';
+import ResumeButton from "../components/ResumeButton";
 import { DiGithubBadge } from "react-icons/di";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -9,7 +10,6 @@ export default function Profile() {
     <>
       <div className="flex flex-col md:flex-row justify-center z-10">
         <div className="flex justify-center items-center">
-            {/* Animated gradient border for mobile image */}
             <div className="relative w-96 h-auto md:hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-teal-900 via-teal-700 to-teal-400 animate-gradient-x rounded-lg"></div>
               <img 
@@ -36,14 +36,7 @@ export default function Profile() {
               I have been a programmer ever since 2016, when I first started learning the basics of Python through an online course on YouTube. Then in high school I joined the computer science course, continuing into my major during university. Throughout these years I have learned to code with Python, Java, C++, HTML and Flutter. I gained a lot of experience working on many different coding projects and also learned concepts such as algorithms and OOP.
             </p>
             <div className="flex flex-row items-center justify-center md:justify-start space-x-4 mt-2 ">
-              <a href="https://www.linkedin.com/in/lucapduarte/" target="_blank" rel="noopener noreferrer">
-                <button 
-                  type="button" 
-                  className="px-2 text-md text-center font-medium text-white h-12 w-30 flex items-center justify-center bg-blue-600 hover:bg-blue-800 active:bg-blue-900 active:scale-95 rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-0"
-                >
-                  <p>My Resume</p>
-                </button>
-              </a>
+              <ResumeButton/>
               <a href="https://github.com/lucapd04" target="_blank" rel="noopener noreferrer">
                 <button 
                   type="button" 
