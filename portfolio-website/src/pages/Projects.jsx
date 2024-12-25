@@ -1,11 +1,17 @@
+import Spline from '@splinetool/react-spline';
+
 export default function Projects() {
     return (
-        <div className="block flex flex-col items-center py-16 md:px-20" style={{
-            background: 'linear-gradient(to right, rgb(4, 10, 29) 0%, black 10%, black 90%, rgb(4, 10, 29) 100%)'
-        }}>
-            <h2 className="experience-title rubik-headline font-bold text-5xl px-8 py-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-white to-cyan-400 relative inline-block mb-8">
-                Projects
-            </h2>
+        <div className="flex flex-col justify-center items-center h-screen relative">
+            <Spline className="absolute inset-0 z-0" scene="https://prod.spline.design/05GegHEcK7rdjrkO/scene.splinecode" />
+            <div className="w-3/4 h-3/4 bg-black/50 backdrop-blur-xl z-10 rounded-lg">
+                <div className="p-7 text-center">
+                    <h1 className="text-white rubik-headline font-bold text-5xl">Projects</h1>
+                    <div className="bg-white mx-auto w-1/2 h-px mt-5"/>
+                    <div className="flex mt-12 px-20 gap-4 flex-wrap">
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
