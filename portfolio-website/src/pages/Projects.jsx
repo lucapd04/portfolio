@@ -1,4 +1,6 @@
 import Spline from '@splinetool/react-spline';
+import VCard from '../components/VCard'
+import Logo from '../assets/images/tsi.png'
 
 export default function Projects() {
     return (
@@ -9,6 +11,7 @@ export default function Projects() {
                     <h1 className="text-white rubik-headline font-bold text-5xl">Projects</h1>
                     <div className="bg-white mx-auto w-1/2 h-px mt-5"/>
                     <div className="flex mt-12 px-20 gap-4 flex-wrap">
+                        <VCard description="Website for the Western Tech for Social Impact club, developed using React and Tailwind" title="TSI Website" img={Logo} langs={["JavaScript", "React", "Tailwind"]}/>
                     </div>
                 </div>
             </div>
