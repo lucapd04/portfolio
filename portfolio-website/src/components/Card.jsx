@@ -1,4 +1,4 @@
-export default function Card({jobTitle, startDate, endDate, description, link = ""}) {
+export default function Card({jobTitle, startDate, endDate="Present", description, link = ""}) {
     return (
         <div className="relative group">
             {/* Darker metallic background with subtle gradient overlay */}
@@ -6,7 +6,7 @@ export default function Card({jobTitle, startDate, endDate, description, link = 
                 bg-gradient-to-br from-black via-gray-950 to-black
                 before:absolute before:inset-0 before:bg-gradient-to-br before:from-gray-700/5 before:via-gray-500/5 before:to-gray-700/5 before:opacity-30 before:rounded-lg
                 hover:before:opacity-40 before:transition-opacity duration-300
-                border-2 border-l-transparent border-t-transparent border-b-blue-900 border-r-blue-900 shadow-xl">
+                border-2 border-l-transparent border-t-transparent border-b-blue-900 border-r-transparent shadow-xl">
                 
                 {/* Content with enhanced styling */}
                 <div className="relative z-10">
