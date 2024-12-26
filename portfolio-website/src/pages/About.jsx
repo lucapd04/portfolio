@@ -1,6 +1,7 @@
 import Profile from '../components/Profile'
 
 export default function About() {
+  
   return (
     <>
         <div className="inset-0 z-0 min-h-screen pb-16" style={{
