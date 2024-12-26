@@ -1,11 +1,15 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../assets/images/logo.png'
+import App from '../App'
+import Projects from '../pages/Projects'
+import './Navbar.css'
 
 const navigation = [
-  { name: 'About', href: '#', current: true },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Resume', href: '#', current: false },
+  { name: 'About', href: '#about', current: true },
+  { name: 'Experience', href: '#experience', current: false },
+  { name: 'Projects', href: '#projects', current: false },
+  { name: 'Contact', href: '#contact', current: false },
 ]
 
 function classNames(...classes) {
@@ -43,7 +47,7 @@ export default function Navbar() {
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
-                      item.current ? 'underline' : 'hover:underline',
+                      item.current ? 'hover:underline' : 'hover:underline',
                       'rounded-md px-3 py-2 text-sm text-xl rubik-subtitle font-bold',
                     )}
                   >

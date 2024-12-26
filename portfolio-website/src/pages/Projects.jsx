@@ -58,9 +58,9 @@ export default function Projects() {
                 </div>
             </div>
             <h1 className="text-white rubik-headline font-bold text-5xl z-10 mt-10">Contact me</h1>
-            <p className="text-white rubik-headline text-md font-light z-10 mt-3">Want to work with me or simply have a chat? Send a message below and I will get back to you as soon as possible!</p>
+            <p className="text-white rubik-headline text-sm text-center w-3/4 md:text-md font-light z-10 mt-3">Want to work with me or simply have a chat? Send a message below and I will get back to you as soon as possible!</p>
             
-            <form onSubmit={handleSubmit} className="z-10 mt-10">
+            <form id="contact" onSubmit={handleSubmit} className="z-10 mt-10">
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
