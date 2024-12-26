@@ -132,7 +132,7 @@ export default function VCard({thumbnail, title, description, langs, video, link
         <>
             <div 
                 onClick={() => setIsOpen(true)} 
-                className="border-2 border-purple-700 hover:border-purple-400 transition transform duration-300 hover:scale-110 relative flex-row rounded-lg w-fit min-[785px]:w-1/2 min-[1253px]:w-1/3 min-[1763px]:w-1/4 min-[2100px]:w-1/6 text-white"
+                className="border-2 border-purple-700 hover:border-purple-400 transition transform duration-300 hover:scale-110 relative flex-row rounded-lg w-full min-[785px]:w-1/2 min-[1240px]:w-1/3 min-[1763px]:w-1/4 min-[2100px]:w-1/6 text-white"
             >
                 <div 
                     className="absolute inset-0 rounded-lg 
