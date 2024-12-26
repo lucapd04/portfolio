@@ -53,7 +53,7 @@ export default function Projects() {
                     <p className="text-white rubik-headline text-md font-light mt-3">Click on card to see further details, click outside of popup to leave</p>
                     <div className="bg-white mx-auto w-1/2 h-px mt-5"/>
                     <div className="flex justify-center items-center mt-12 min-[470px]:px-20 gap-6 flex-wrap">
-                        <VCard description="Website for the Western Tech for Social Impact club, developed using React and Tailwind" title="TSI Website" thumbnail={Logo} langs={["JavaScript", "React", "Tailwind"]} video={TSI_Video} link="https://uwotsi.com/"/>
+                        <VCard description="Website for the Western Tech for Social Impact club, developed using React and Tailwind" title="TSI Website" thumbnail={Logo} langs={["JavaScript", "React", "Tailwind"]} video={TSI_Video} link="https://github.com/dahan8473/Club_Website"/>
                     </div>
                 </div>
             </div>

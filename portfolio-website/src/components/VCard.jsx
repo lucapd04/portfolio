@@ -2,7 +2,7 @@ import React, {useRef, useState, useEffect } from 'react';
 import { Button } from "@material-tailwind/react";
 import { createPortal } from 'react-dom';
 
-export default function VCard({thumbnail, title, description, langs, video, link}) {
+export default function VCard({thumbnail, title, description, langs, video = "", link}) {
     const [isOpen, setIsOpen] = useState(false);
 
     const SlideIn = ({ 
@@ -10,26 +10,26 @@ export default function VCard({thumbnail, title, description, langs, video, link
         direction = 'left',
         threshold = 0.2, 
         rootMargin = '0px' 
-        }) => {
+    }) => {
         const [isVisible, setIsVisible] = useState(false);
         const elementRef = useRef(null);
         
         useEffect(() => {
             const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                setIsVisible(true);
-                observer.disconnect();
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                        observer.disconnect();
+                    }
+                },
+                {
+                    threshold,
+                    rootMargin
                 }
-            },
-            {
-                threshold,
-                rootMargin
-            }
             );
         
             if (elementRef.current) {
-            observer.observe(elementRef.current);
+                observer.observe(elementRef.current);
             }
         
             return () => observer.disconnect();
@@ -37,34 +37,34 @@ export default function VCard({thumbnail, title, description, langs, video, link
         
         const getInitialTransform = () => {
             switch (direction) {
-            case 'left':
-                return 'translateX(-100%)';
-            case 'right':
-                return 'translateX(100%)';
-            case 'up':
-                return 'translateY(100%)';
-            case 'down':
-                return 'translateY(-100%)';
-            default:
-                return 'translateX(-100%)';
+                case 'left':
+                    return 'translateX(-100%)';
+                case 'right':
+                    return 'translateX(100%)';
+                case 'up':
+                    return 'translateY(100%)';
+                case 'down':
+                    return 'translateY(-100%)';
+                default:
+                    return 'translateX(-100%)';
             }
         };
         
         return (
             <div
-            ref={elementRef}
-            className={`
-                transform transition-all duration-700 ease-out
-                ${isVisible ? 'translate-x-0 translate-y-0 opacity-100' : 'opacity-0'}
-            `}
-            style={{
-                transform: isVisible ? 'translate(0)' : getInitialTransform()
-            }}
+                ref={elementRef}
+                className={`
+                    transform transition-all duration-700 ease-out
+                    ${isVisible ? 'translate-x-0 translate-y-0 opacity-100' : 'opacity-0'}
+                `}
+                style={{
+                    transform: isVisible ? 'translate(0)' : getInitialTransform()
+                }}
             >
-            {children}
+                {children}
             </div>
         );
-        };
+    };
     
     useEffect(() => {
         const handleEscapeKey = (event) => {
@@ -97,9 +97,17 @@ export default function VCard({thumbnail, title, description, langs, video, link
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-50% from-black via-purple-950 to-black rounded-lg border border-purple-900" />
                     <div className="flex-row relative z-10 p-6">
-                        <video width="100%" height="auto" autoPlay loop>
-                            <source src={video} type="video/mp4"/>
-                        </video>
+                        {video ? (
+                            <video width="100%" height="auto" autoPlay loop muted>
+                                <source src={video} type="video/mp4"/>
+                            </video>
+                        ) : thumbnail && (
+                            <img 
+                                className="w-full object-cover h-96 rounded-lg p-0" 
+                                src={thumbnail} 
+                                alt={title}
+                            />
+                        )}
                         <div className="text-white p-3">
                             <h1 className="font-bold text-xl mb-2">{title}</h1>
                             <div className="flex flex-wrap gap-2">
@@ -115,8 +123,8 @@ export default function VCard({thumbnail, title, description, langs, video, link
                             <p className="mt-2 mb-2 text-[15px]">{description}</p>
                             <a href={link} target="_blank" rel="noopener noreferrer">
                                 <Button className="border border-purple-800 hover:bg-zinc-800 transition ease-in-out duration-300 bg-zinc-950 flex p-2 items-center gap-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
                                     </svg>
                                     View code
                                 </Button>
@@ -140,7 +148,7 @@ export default function VCard({thumbnail, title, description, langs, video, link
                     duration-300 opacity-60 shadow-xl"
                 />
                 <div className="relative z-10 space-y-1 text-left">
-                    <img className="w-full object-cover h-44 rounded-t-lg p-0" src={thumbnail} alt={title}/>
+                   <img className="w-full object-cover h-44 rounded-t-lg p-0" src={thumbnail} alt={title}/>
                    <div className="p-3">
                         <h1 className="font-bold text-xl mb-2">{title}</h1>
                         <div className="flex flex-wrap gap-2">
