@@ -2,6 +2,11 @@ import Spline from '@splinetool/react-spline';
 import VCard from '../components/VCard'
 import Logo from '../assets/images/tsi.png'
 import TSI_Video from '../assets/tsi_site.mp4'
+import Memento from '../assets/images/memento.png'
+import Memento_Video from '../assets/memento_video.mp4'
+import UnitedWay from '../assets/images/unitedway.png'
+import CodeSwitch from '../assets/images/codeswitch.png'
+import WEC from '../assets/images/wec.png'
 import emailjs from 'emailjs-com';
 import React, { useState } from 'react';
 
@@ -51,9 +56,28 @@ export default function Projects() {
                 <div className="p-7 text-center">
                     <h1 className="text-white rubik-headline font-bold text-5xl">Projects</h1>
                     <p className="text-white rubik-headline text-md font-light mt-3">Click on card to see further details, click outside of popup to leave</p>
+                    <a href="https://github.com/lucapd04" target="_blank" title="Go to Github">
+                        <p className="text-white hover:font-bold underline rubik-headline text-md font-light">Check out my Github to see more</p>
+                    </a>
                     <div className="bg-white mx-auto w-1/2 h-px mt-5"/>
                     <div className="flex justify-center items-center mt-12 min-[470px]:px-20 gap-6 flex-wrap">
-                        <VCard description="Website for the Western Tech for Social Impact club, developed using React and Tailwind" title="TSI Website" thumbnail={Logo} langs={["JavaScript", "React", "Tailwind"]} video={TSI_Video} link="https://github.com/dahan8473/Club_Website"/>
+
+                        <VCard title="United Way StepUp" description="Data visualization webapp created for the United Way Stairclimb event. Uses React frontend to parse data from StepUp app and allows data modification using a Python Flask API as backend." 
+                        thumbnail={UnitedWay} langs={["React", "Bootstrap", "Python", "Flask"]} code="https://github.com/lucapd04/leaderboard-app" link="https://jxohg.github.io/leaderboard-app/"/>
+
+                        <VCard title="Memento" description="Taipy webapp which creates time capsules of your favourite memories, winning an award for 'Best use of Taipy'. Uses Cohere AI to generate storytelling descriptions based on given prompts" 
+                        thumbnail={Memento} langs={["Taipy", "Cohere", "Python"]} video={Memento_Video} code="https://github.com/lucapd04/Memento" link="https://devpost.com/software/memento-v269mx"/>
+
+                        <VCard title="CodeSwitch" description="Streamlit webapp which translates words from a wide variety of languages into functioning code. Designed to help those who want to learn computer science whilst not having proficiency with the english language. Utilizes MongoDB database to save key terms that are commonly used by users of that language, as well to save language profiles for any users" 
+                        thumbnail={CodeSwitch} langs={["Streamlit", "MongoDB", "Python", "Cloudflare"]} code="https://github.com/lucapd04/CodeSwitch"/>
+
+                        <VCard title="TSI Website" description="Website for the Western Tech for Social Impact club, developed using React and Tailwind" thumbnail={Logo} 
+                        langs={["JavaScript", "React", "Tailwind"]} video={TSI_Video} code="https://github.com/dahan8473/Club_Website" link="https://uwotsi.com/"/>
+
+                        
+                        <VCard title="WEC 2024 Game" description="Spaceshooter game developed for the WEC 2024 competition using Unity" 
+                        thumbnail={WEC} langs={["Unity", "C#"]} code="https://github.com/lucapd04/WEC_24_Space"/>
+
                     </div>
                 </div>
             </div>

@@ -35,15 +35,25 @@ export default function Profile() {
           }}></div>
           <div className="flex flex-col relative z-10">
             <h2 className="rubik-headline font-bold text-5xl mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-white to-cyan-400">About me</h2>
-            <p className="mb-4">
-              I am a 3rd year Computer Science student currently enrolled in Western University. 
-            </p>
-            <p className="mb-4">
-              Recently having finished my first year at university, I hope to continue my 4 year program and become a computer science major.
-            </p>
-            <p className="mb-4">
-              I have been a programmer ever since 2016, when I first started learning the basics of Python through an online course on YouTube. Then in high school I joined the computer science course, continuing into my major during university. Throughout these years I have learned to code with Python, Java, C++, HTML and Flutter. I gained a lot of experience working on many different coding projects and also learned concepts such as algorithms and OOP.
-            </p>
+            <div className="rubik-subtitle text-lg">
+              <p className="mb-4">
+                Hello, my name is Luca and I am a 3rd year Computer Science student currently enrolled in Western University. 
+              </p>
+              <p className="mb-4">
+                I have been a programmer ever since 2016, when I first started learning the basics of Python through an online course on YouTube. Then in high school I joined the computer science course, continuing into my major during university. 
+                Throughout these years I have learned to code with Python, Java, C++, HTML, React, Javascript and much more. I have gained a lot of experience working on many different projects, both personal and for hackathons, and also from my university coursework.
+              </p>
+              <p className="mb-4">
+                Outside of programming, I am a big fan of video games and anime. I love playing RPGs in my free time: Fallout:New Vegas, Skyrim and Witcher 3 are some of my favourite games of all time and I have played through them multiple times.
+                Photography is also a big hobby of mine and if you want to learn more about my photography work checkout my instagram (@lucapd04), and my previous portfolio&nbsp;
+                <a href="https://sites.google.com/view/lucaduarte/home?authuser=0" target="_blank" className="underline hover:font-bold">
+                   here!
+                </a>
+              </p>
+              <p className="mb-4">
+                If you'd like to work together or just chat, feel free to contact me through my LinkedIn or email below, I am always down to share ideas and collaborate on projects.
+              </p>
+            </div>
             <div className="flex flex-row items-center justify-center md:justify-start space-x-4 mt-2 mb-5">
               <ResumeButton/>
               <a href="https://github.com/lucapd04" target="_blank" rel="noopener noreferrer">
@@ -66,19 +76,27 @@ export default function Profile() {
             <div className="flex flex-row flex-wrap space-x-2 max-[767px]:justify-center items-center">
               <img src={React_Logo} alt="React Logo" className="h-25 w-25"/>
               <img src={Python} alt="Python Logo" className="h-25 w-25"/>
-              <img src={Flask} alt="Flask Logo" className="h-25 w-25"/>
               <img src={Mongo} alt="MongoDB Logo" className="h-25 w-25"/>
               <img src={JS} alt="Javascript Logo" className="h-25 w-25"/>
               <img src={HTML} alt="HTML Logo" className="h-25 w-25"/>
               <img src={CSS} alt="CSS Logo" className="h-25 w-25"/>
+              <img src={Java} alt="Java Logo" className="h-25 w-25"/>
+              <img src={C} alt="C++ Logo" className="h-25 w-25"/>
+              <img src={Flask} alt="Flask Logo" className="h-25 w-25"/>
             </div>
-            <p className="text-gray-600 mt-4">
+            <p className="italic rubik-subtitle text-blue-900 mt-4">
               Icons by 
-              <a className="underline" href="https://icons8.com/"> Icons8</a>
+              <a className="italic rubik-subtitle underline" href="https://icons8.com/"> Icons8</a>
             </p>
           </div>
         </div>
-        <img className="object-scale-down h-full w-[450px] min-[1507px]:w-96 mt-10 hidden min-[1140px]:block" src={Photo} alt="Profile" />
+        <div className="hidden min-[1140px]:block min-[1140px]:w-[450px] min-[1507px]:w-96 mt-10">
+          <img 
+            className="w-full h-full object-cover" 
+            src={Photo} 
+            alt="Profile" 
+          />
+        </div>
       </div>
     </>
   );
