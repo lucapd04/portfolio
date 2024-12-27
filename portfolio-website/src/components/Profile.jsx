@@ -46,7 +46,7 @@ export default function Profile() {
               <p className="mb-4">
                 Outside of programming, I am a big fan of video games and anime. I love playing RPGs in my free time: Fallout:New Vegas, Skyrim and Witcher 3 are some of my favourite games of all time and I have played through them multiple times.
                 Photography is also a big hobby of mine and if you want to learn more about my photography work checkout my instagram (@lucapd04), and my previous portfolio&nbsp;
-                <a href="https://sites.google.com/view/lucaduarte/home?authuser=0" target="_blank" className="underline hover:font-bold">
+                <a href="https://sites.google.com/view/lucaduarte/home?authuser=0" target="_blank" className="underline hover:font-bold" title="Portfolio">
                    here!
                 </a>
               </p>
@@ -90,7 +90,7 @@ export default function Profile() {
             </p>
           </div>
         </div>
-        <div className="hidden min-[1140px]:block min-[1140px]:w-[450px] min-[1507px]:w-96 mt-10">
+        <div className="hidden min-[1140px]:block min-[1140px]:w-[450px] min-[1507px]:w-[500px] mt-10">
           <img 
             className="w-full h-full object-cover" 
             src={Photo} 
