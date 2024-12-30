@@ -118,28 +118,29 @@ export default function VCard({thumbnail, title, description, langs, video = "",
     }, [isOpen]);
 
     const Modal = () => (
-        <div className="fixed top-0 left-0 right-0 bottom-0 min-h-screen min-w-screen flex items-center justify-center" style={{ zIndex: 9999 }}>
+        <div className="fixed inset-0 w-full h-full flex items-center justify-center z-[9999] p-4">
             <div 
-                className="absolute top-0 left-0 right-0 bottom-0 min-h-screen min-w-screen bg-black bg-opacity-60 backdrop-blur-sm"
+                className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm"
                 onClick={() => setIsOpen(false)}
             />
             <SlideIn direction="up">
                 <div 
-                    className="relative inset-0 rounded-lg max-w-4xl w-full overflow-y-auto"
+                    className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg"
                     onClick={e => e.stopPropagation()}
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-50% from-black via-purple-950 to-black rounded-lg border border-purple-900" />
-                    <div className="flex-row relative z-10 p-6">
+                    <div className="flex flex-col relative z-10 p-4 sm:p-6">
                         {video ? (
-                            <video width="100%" height="auto" autoPlay loop muted>
+                            <video width="100%" height="auto" autoPlay loop muted playsInline>
                                 <source src={video} type="video/mp4"/>
                                 Your browser does not support the video tag.
                             </video>
                         ) : thumbnail && (
                             <img 
-                                className="w-full object-cover h-96 rounded-lg p-0" 
+                                className="w-full object-cover max-h-96 rounded-lg" 
                                 src={thumbnail} 
                                 alt={title}
+                                loading="lazy"
                             />
                         )}
                         <div className="text-white p-3">
@@ -155,7 +156,7 @@ export default function VCard({thumbnail, title, description, langs, video = "",
                                 ))}
                             </div>
                             <p className="rubik-subtitle mt-2 mb-2 text-[15px]">{description}</p>
-                            <div className="flex flex-row space-x-2">
+                            <div className="flex flex-row flex-wrap gap-2">
                                 <a href={code} target="_blank" rel="noopener noreferrer">
                                     <Button className="border border-purple-800 hover:bg-zinc-800 transition ease-in-out duration-300 bg-zinc-950 flex p-2 items-center gap-3">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -169,7 +170,7 @@ export default function VCard({thumbnail, title, description, langs, video = "",
                                         <button className="border font-bold border-purple-800 hover:bg-zinc-800 transition ease-in-out duration-300 bg-zinc-950 flex p-2 items-center rounded-lg" type="button">
                                             Homepage
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
-                                            <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+                                                <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
                                             </svg>
                                         </button>
                                     </a>
