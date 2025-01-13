@@ -50,8 +50,9 @@ export default function Projects() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center py-12 relative">
-            <Spline className="absolute inset-0 z-0" scene="https://prod.spline.design/05GegHEcK7rdjrkO/scene.splinecode" />
+        <div className="bg-black flex flex-col justify-center items-center py-12 relative" style={{
+            background: 'linear-gradient(to right, rgb(26, 4, 39) 0%, black 10%, black 90%, rgb(26, 4, 39) 100%)'
+        }}>
             <div className="w-3/4 h-3/4 bg-black/40 backdrop-blur-xl z-10 rounded-lg">
                 <div className="p-7 text-center">
                     <h1 className="text-white rubik-headline font-bold text-5xl">Projects</h1>

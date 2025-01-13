@@ -14,19 +14,14 @@ export default function VCard({thumbnail, title, description, langs, video = "",
                 const descElement = descriptionRef.current;
                 const containerElement = containerRef.current;
                 
-                // Reset any previous truncation state
                 descElement.style.height = 'auto';
-                
-                // Get the available space in the container
                 const containerHeight = containerElement.clientHeight;
                 const titleHeight = containerElement.querySelector('h1').offsetHeight;
                 const tagsHeight = containerElement.querySelector('.tags-container').offsetHeight;
-                const padding = 32; // Account for padding (16px top + 16px bottom)
+                const padding = 32;
                 
-                // Calculate maximum available height for description
                 const maxAvailableHeight = containerHeight - titleHeight - tagsHeight - padding;
                 
-                // Set the height and check if content is truncated
                 descElement.style.height = `${maxAvailableHeight}px`;
                 setIsTruncated(descElement.scrollHeight > maxAvailableHeight);
             }
@@ -38,35 +33,13 @@ export default function VCard({thumbnail, title, description, langs, video = "",
         return () => window.removeEventListener('resize', checkTruncation);
     }, [description, langs]);
 
-    const SlideIn = ({ 
-        children, 
-        direction = 'left',
-        threshold = 0.2, 
-        rootMargin = '0px' 
-    }) => {
+    const SlideIn = ({ children, direction = 'left', threshold = 0.2, rootMargin = '0px' }) => {
         const [isVisible, setIsVisible] = useState(false);
         const elementRef = useRef(null);
         
         useEffect(() => {
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                        observer.disconnect();
-                    }
-                },
-                {
-                    threshold,
-                    rootMargin
-                }
-            );
-        
-            if (elementRef.current) {
-                observer.observe(elementRef.current);
-            }
-        
-            return () => observer.disconnect();
-        }, [threshold, rootMargin]);
+            setIsVisible(true); // Immediately set to visible for modal content
+        }, []);
         
         const getInitialTransform = () => {
             switch (direction) {
@@ -91,7 +64,7 @@ export default function VCard({thumbnail, title, description, langs, video = "",
                     ${isVisible ? 'translate-x-0 translate-y-0 opacity-100' : 'opacity-0'}
                 `}
                 style={{
-                    transform: isVisible ? 'translate(0)' : getInitialTransform()
+                    transform: isVisible ? 'none' : getInitialTransform()
                 }}
             >
                 {children}
@@ -118,67 +91,69 @@ export default function VCard({thumbnail, title, description, langs, video = "",
     }, [isOpen]);
 
     const Modal = () => (
-        <div className="fixed inset-0 min-h-screen min-w-screen flex items-center justify-center" style={{ zIndex: 9999 }}>
+        <div className="fixed inset-0 min-h-screen min-w-screen flex items-center justify-center z-50">
             <div 
-                className="absolute top-0 left-0 right-0 bottom-0 min-h-screen min-w-screen bg-black bg-opacity-60 backdrop-blur-sm"
+                className="absolute inset-0 min-h-screen min-w-screen bg-black bg-opacity-60 backdrop-blur-sm"
                 onClick={() => setIsOpen(false)}
             />
-            <SlideIn direction="up">
-                <div 
-                    className="relative inset-0 rounded-lg max-w-4xl w-full overflow-y-auto"
-                    onClick={e => e.stopPropagation()}
-                >
-                    <div className="absolute inset-0 bg-gradient-to-br from-50% from-black via-purple-950 to-black rounded-lg border border-purple-900" />
-                    <div className="flex-row relative z-10 p-6">
-                        {video ? (
-                            <video width="100%" height="auto" autoPlay loop muted>
-                                <source src={video} type="video/mp4"/>
-                                Your browser does not support the video tag.
-                            </video>
-                        ) : thumbnail && (
-                            <img 
-                                className="w-full object-cover h-96 rounded-lg p-0" 
-                                src={thumbnail} 
-                                alt={title}
-                            />
-                        )}
-                        <div className="text-white p-3">
-                            <h1 className="font-bold text-xl mb-2">{title}</h1>
-                            <div className="flex flex-wrap gap-2">
-                                {langs.map((lang, index) => (
-                                    <span
-                                        key={index}
-                                        className="rubik-subtitle px-2 py-1 text-sm bg-purple-900 rounded-md border border-purple-700"
-                                    >
-                                        {lang}
-                                    </span>
-                                ))}
-                            </div>
-                            <p className="rubik-subtitle mt-2 mb-2 text-[15px]">{description}</p>
-                            <div className="flex flex-row space-x-2">
-                                <a href={code} target="_blank" rel="noopener noreferrer">
-                                    <Button className="border border-purple-800 hover:bg-zinc-800 transition ease-in-out duration-300 bg-zinc-950 flex p-2 items-center gap-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
-                                        </svg>
-                                        View code
-                                    </Button>
-                                </a>
-                                {link && (
-                                    <a href={link} target="_blank" rel="noopener noreferrer">
-                                        <button className="border font-bold border-purple-800 hover:bg-zinc-800 transition ease-in-out duration-300 bg-zinc-950 flex p-2 items-center rounded-lg" type="button">
-                                            Homepage
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
-                                            <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+            <div className="relative w-full max-w-4xl">
+                <SlideIn direction="up">
+                    <div 
+                        className="relative rounded-lg overflow-y-auto"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-50% from-black via-purple-950 to-black rounded-lg border border-purple-900" />
+                        <div className="flex-row relative z-10 p-6">
+                            {video ? (
+                                <video width="100%" height="auto" autoPlay loop muted>
+                                    <source src={video} type="video/mp4"/>
+                                    Your browser does not support the video tag.
+                                </video>
+                            ) : thumbnail && (
+                                <img 
+                                    className="w-full object-cover h-96 rounded-lg p-0" 
+                                    src={thumbnail} 
+                                    alt={title}
+                                />
+                            )}
+                            <div className="text-white p-3">
+                                <h1 className="font-bold text-xl mb-2">{title}</h1>
+                                <div className="flex flex-wrap gap-2">
+                                    {langs.map((lang, index) => (
+                                        <span
+                                            key={index}
+                                            className="rubik-subtitle px-2 py-1 text-sm bg-purple-900 rounded-md border border-purple-700"
+                                        >
+                                            {lang}
+                                        </span>
+                                    ))}
+                                </div>
+                                <p className="rubik-subtitle mt-2 mb-2 text-[15px]">{description}</p>
+                                <div className="flex flex-row space-x-2">
+                                    <a href={code} target="_blank" rel="noopener noreferrer">
+                                        <Button className="border border-purple-800 hover:bg-zinc-800 transition ease-in-out duration-300 bg-zinc-950 flex p-2 items-center gap-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
                                             </svg>
-                                        </button>
+                                            View code
+                                        </Button>
                                     </a>
-                                )}
+                                    {link && (
+                                        <a href={link} target="_blank" rel="noopener noreferrer">
+                                            <button className="border font-bold border-purple-800 hover:bg-zinc-800 transition ease-in-out duration-300 bg-zinc-950 flex p-2 items-center rounded-lg" type="button">
+                                                Homepage
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
+                                                <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </SlideIn>
+                </SlideIn>
+            </div>
         </div>
     );
     
@@ -193,7 +168,7 @@ export default function VCard({thumbnail, title, description, langs, video = "",
                     bg-gradient-to-br from-black via-purple-950 to-black 
                     duration-300 opacity-60 shadow-xl"
                 />
-                <div className="relative z-10 text-left flex flex-col h-full">
+                <div ref={containerRef} className="relative z-10 text-left flex flex-col h-full">
                     <img 
                         className="w-full object-cover h-44 flex-shrink-0 rounded-t-lg p-0" 
                         src={thumbnail} 
@@ -201,7 +176,7 @@ export default function VCard({thumbnail, title, description, langs, video = "",
                     />
                     <div className="p-4 flex flex-col flex-grow">
                         <h1 className="font-bold text-xl mb-1.5 truncate">{title}</h1>
-                        <div className="flex flex-wrap gap-2 mb-2">
+                        <div className="flex flex-wrap gap-2 mb-2 tags-container">
                             {langs.map((lang, index) => (
                                 <span
                                     key={index}
@@ -212,7 +187,7 @@ export default function VCard({thumbnail, title, description, langs, video = "",
                             ))}
                         </div>
                         <div className="relative flex-grow overflow-hidden">
-                            <p className="rubik-subtitle text-[15px] absolute inset-0">
+                            <p ref={descriptionRef} className="rubik-subtitle text-[15px] absolute inset-0">
                                 {description}
                             </p>
                         </div>
