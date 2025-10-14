@@ -37,7 +37,7 @@ export default function Profile() {
             <h2 className="rubik-headline font-bold text-5xl mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-white to-cyan-400">About me</h2>
             <div className="rubik-subtitle text-lg">
               <p className="mb-4">
-                Hello, my name is Luca and I am a 3rd year Computer Science student currently enrolled in Western University. 
+                Hello, my name is Luca and I am a 3rd year Computer Science student currently enrolled at Western University. 
               </p>
               <p className="mb-4">
                 I have been a programmer ever since 2016, when I first started learning the basics of Python through an online course on YouTube. Then in high school I joined the computer science course, continuing into my major during university. 

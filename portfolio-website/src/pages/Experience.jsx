@@ -74,8 +74,14 @@ export default function Experience() {
                 <ol className="text-left space-y-6">
                     <li>
                         <SlideIn>
-                            <Card jobTitle="Project Manager at Western Tech for Social Impact" startDate="July 2024" 
-                            description="Leading a team of 5+ developers to develop a diverse cast of projects for multiple non-profit organizations within London, ON" link="https://uwotsi.com/"/>
+                            <Card jobTitle="Cloud Developer at the Bank of Montreal" startDate="May 2025"
+                            description="Working under the Cloud Serverless team at BMO to help develop and maintain the bank's cloud infrastructre" link="https://www.linkedin.com/in/lucapduarte/"/>
+                        </SlideIn>
+                    </li>
+                    <li>
+                        <SlideIn>
+                            <Card jobTitle="Project Manager at Western Tech for Social Impact" startDate="July 2024" endDate="August 2025"
+                            description="Lead two teams of 5+ developers to develop a diverse cast of projects for multiple non-profit organizations within London, ON" link="https://uwotsi.com/"/>
                         </SlideIn>
                     </li>
                     <li>

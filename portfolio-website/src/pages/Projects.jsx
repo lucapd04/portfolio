@@ -5,6 +5,7 @@ import TSI_Video from '../assets/tsi_site.mp4'
 import Memento from '../assets/images/memento.png'
 import Memento_Video from '../assets/memento_video.mp4'
 import UnitedWay from '../assets/images/unitedway.png'
+import FHC from '../assets/images/fhc.png'
 import CodeSwitch from '../assets/images/codeswitch.png'
 import WEC from '../assets/images/wec.png'
 import emailjs from 'emailjs-com';
@@ -65,6 +66,9 @@ export default function Projects() {
 
                         <VCard title="United Way StepUp" description="Data visualization webapp created for the United Way Stairclimb event. Uses React frontend to parse data from StepUp app and allows data modification using a Python Flask API as backend." 
                         thumbnail={UnitedWay} langs={["React", "Bootstrap", "Python", "Flask"]} code="https://github.com/lucapd04/leaderboard-app" link="https://jxohg.github.io/leaderboard-app/"/>
+                        
+                        <VCard title="Fund Homecare Canada Grant Scraper" description="Grant scraper tool made with BeautifulSoup that collects grant data online and uploads to a Supabase database, which is then visualized in a dashboard within a React webapp" 
+                        thumbnail={FHC} langs={["React", "BeautifulSoup", "Python", "Supabase"]} code="https://github.com/lucapd04/FundhomecareGrantAggregator" link="https://fundhomecarescraper.vercel.app"/>
 
                         <VCard title="Memento" description="Taipy webapp which creates time capsules of your favourite memories, winning an award for 'Best use of Taipy'. Uses Cohere AI to generate storytelling descriptions based on given prompts" 
                         thumbnail={Memento} langs={["Taipy", "Cohere", "Python"]} video={Memento_Video} code="https://github.com/lucapd04/Memento" link="https://devpost.com/software/memento-v269mx"/>
@@ -75,7 +79,6 @@ export default function Projects() {
                         <VCard title="TSI Website" description="Website for the Western Tech for Social Impact club, developed using React and Tailwind" thumbnail={Logo} 
                         langs={["JavaScript", "React", "Tailwind"]} video={TSI_Video} code="https://github.com/dahan8473/Club_Website" link="https://uwotsi.com/"/>
 
-                        
                         <VCard title="WEC 2024 Game" description="Spaceshooter game developed for the WEC 2024 competition using Unity" 
                         thumbnail={WEC} langs={["Unity", "C#"]} code="https://github.com/lucapd04/WEC_24_Space"/>
 
