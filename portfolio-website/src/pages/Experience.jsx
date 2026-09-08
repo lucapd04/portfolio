@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Card from '../components/Card'
+import AWS_Practitioner from '../assets/practitioner.pdf'
 
 export default function Experience() {  
     const SlideIn = ({ 
@@ -72,6 +73,12 @@ export default function Experience() {
             </h2>
             <div className="w-3/4 px-4 mt-6">
                 <ol className="text-left space-y-6">
+                    <li>
+                        <SlideIn>
+                            <Card jobTitle="AWS Cloud Practitioner Certification" startDate="July 2026"
+                            description="Acquired AWS Cloud Practitioner certificate" pdf={AWS_Practitioner}/>
+                        </SlideIn>
+                    </li>
                     <li>
                         <SlideIn>
                             <Card jobTitle="Cloud Developer at the Bank of Montreal" startDate="May 2025"

@@ -13,6 +13,7 @@ import Java from '../assets/images/java.png'
 import JS from '../assets/images/javascript.png'
 import HTML from '../assets/images/html.png'
 import CSS from '../assets/images/css.png'
+import AWS from '../assets/images/aws.png'
 
 export default function Profile() {
   return (
@@ -74,6 +75,7 @@ export default function Profile() {
               </a>
             </div>
             <div className="flex flex-row flex-wrap space-x-2 max-[767px]:justify-center items-center">
+              <img src={AWS} alt="React Logo" className="h-25 w-25"/>
               <img src={React_Logo} alt="React Logo" className="h-25 w-25"/>
               <img src={Python} alt="Python Logo" className="h-25 w-25"/>
               <img src={Mongo} alt="MongoDB Logo" className="h-25 w-25"/>
